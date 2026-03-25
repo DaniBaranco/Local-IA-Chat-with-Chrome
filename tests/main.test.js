@@ -26,7 +26,7 @@ describe('UI helpers', () => {
 
   beforeEach(() => {
     jest.resetModules();
-    app = require('../main.js');
+    app = require('../src/main.js');
   });
 
   afterEach(() => {

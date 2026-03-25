@@ -36,8 +36,8 @@ Aplicación de chat local y offline (WebLLM) donde la IA se ejecuta en el equipo
 ## 📁 Estructura de archivos
 
 - `index.html`: marcas principales, botones, contenedores y valores estáticos.
-- `styles.css`: diseño responsivo, temas, componentes de chat.
-- `main.js`: lógica completa de UI + lógica del flujo de IA.
+- `src/styles.css`: diseño responsivo, temas, componentes de chat.
+- `src/main.js`: lógica completa de UI + lógica del flujo de IA.
 - `tests/main.test.js`: pruebas de funciones y comportamiento.
 - `tests/security.test.js`: prueba XSS de `appendMessage`.
 - `package.json`: dependencias y scripts.

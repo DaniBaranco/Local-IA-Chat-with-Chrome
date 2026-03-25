@@ -20,7 +20,7 @@ beforeEach(() => {
 });
 
 test('para test de seguridad XSS, appendMessage nunca ejecuta HTML de input', () => {
-  const app = require('../main.js');
+  const app = require('../src/main.js');
   const payload = '<script>window.XSS=' + Math.random() + '</script>toto';
 
   const textEl = app.appendMessage('ai', payload);
