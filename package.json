@@ -1,0 +1,14 @@
+{
+  "name": "genio-gemini-nano",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mini app de chat local con pruebas unitarias y de seguridad",
+  "scripts": {
+    "test": "jest",
+    "test:security": "jest --runInBand --testPathPattern=security"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^30.3.0"
+  }
+}
