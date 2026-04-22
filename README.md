@@ -1,3 +1,5 @@
+URL de acceso: https://danibaranco.github.io/Local-IA-Chat-with-Chrome/
+
 # Genio Gemini Nano (Web)
 
 Aplicación de chat local y offline (WebLLM) donde la IA se ejecuta en el equipo cliente.
