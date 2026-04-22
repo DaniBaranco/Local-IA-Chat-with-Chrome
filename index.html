@@ -1,101 +1,145 @@
 <!DOCTYPE html>
+<!-- Página principal de la aplicación Genio Gemini Nano -->
+<!-- Una aplicación web de chat que utiliza Gemini Nano para IA local -->
 <html lang="es" data-theme="dark">
 
 <head>
+    <!-- Metadatos básicos de la página -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enlace al archivo de estilos CSS -->
     <link rel="stylesheet" href="src/styles.css" />
+    <!-- Script principal de JavaScript cargado de forma diferida -->
     <script src="src/main.js" defer></script>
+    <!-- Título de la página -->
     <title>Genio Gemini Nano</title>
+    <!-- Fuentes de Google para tipografía -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&family=Syne:wght@500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
+    <!-- Barra lateral con navegación y historial de conversaciones -->
+    <aside class="sidebar" role="complementary" aria-label="Navegación y historial">
+        <!-- Encabezado de la barra lateral con logo y botón de tema -->
         <div class="sidebar-header">
-            <div class="logo">
-                <span class="logo-icon">✦</span>
+            <!-- Logo de la aplicación -->
+            <div class="logo" role="banner">
+                <span class="logo-icon" aria-hidden="true">✦</span>
                 <span class="logo-text">Genio Nano</span>
             </div>
-            <button class="theme-toggle" id="themeToggle" title="Cambiar tema">
-                <span class="theme-icon">☀</span>
+            <!-- Botón para alternar entre tema oscuro y claro -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar entre tema oscuro y claro">
+                <span class="theme-icon" aria-hidden="true">☀</span>
             </button>
         </div>
 
-        <button class="new-chat-btn" id="newChatBtn">
-            <span>＋</span> Nueva conversación
+        <!-- Botón para iniciar una nueva conversación -->
+        <button class="new-chat-btn" id="newChatBtn" aria-label="Iniciar nueva conversación">
+            <span aria-hidden="true">＋</span> Nueva conversación
         </button>
 
-        <div class="history-label">Hoy</div>
-        <ul class="history-list" id="historyList">
-            <!-- items añadidos por JS -->
+        <!-- Etiqueta para la sección de historial -->
+        <div class="history-label" aria-hidden="true">Hoy</div>
+        <!-- Lista de conversaciones anteriores -->
+        <ul class="history-list" id="historyList" role="list" aria-label="Historial de conversaciones">
+            <!-- Los elementos del historial se añaden dinámicamente por JavaScript -->
         </ul>
 
+        <!-- Pie de la barra lateral con información del modelo -->
         <div class="sidebar-footer">
-            <div class="model-badge">
-                <span class="model-dot"></span>
+            <!-- Indicador del estado del modelo de IA -->
+            <div class="model-badge" role="status" aria-live="polite">
+                <span class="model-dot" aria-hidden="true"></span>
                 Gemini Nano · Local
             </div>
         </div>
     </aside>
 
-    <!-- Main -->
-    <main class="main">
+    <!-- Contenido principal de la aplicación -->
+    <main class="main" role="main">
 
-        <!-- Top bar -->
-        <header class="topbar">
-            <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+        <!-- Barra superior con título y controles -->
+        <header class="topbar" role="banner">
+            <!-- Botón para mostrar/ocultar la barra lateral en móviles -->
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir menú lateral" aria-expanded="false">
+                <span aria-hidden="true">☰</span>
+            </button>
+            <!-- Título de la aplicación en la barra superior -->
             <span class="topbar-title">Gemini Nano</span>
-            <div id="statusDot" class="status-dot loading" title="Inicializando..."></div>
+            <!-- Indicador de estado de la IA -->
+            <div id="statusDot" class="status-dot loading" role="status" aria-live="polite" title="Inicializando..." aria-label="Estado de la IA"></div>
         </header>
 
-        <!-- Chat area -->
-        <div class="chat-area" id="chatArea">
-
-            <!-- Estado vacío -->
-            <div class="empty-state" id="emptyState">
-                <div class="empty-icon">✦</div>
+        <!-- Área de conversación donde se muestran los mensajes -->
+        <div class="chat-area" id="chatArea" role="log" aria-label="Área de conversación" aria-live="polite">
+            <!-- Estado vacío mostrado cuando no hay mensajes -->
+            <div class="empty-state" id="emptyState" role="region" aria-label="Bienvenida y sugerencias">
+                <!-- Icono decorativo -->
+                <div class="empty-icon" aria-hidden="true">✦</div>
+                <!-- Título de bienvenida -->
                 <h2 class="empty-title">¿En qué puedo ayudarte?</h2>
+                <!-- Descripción explicando la privacidad -->
                 <p class="empty-sub">Haz una pregunta. La IA corre <em>completamente en tu dispositivo</em>, sin enviar datos a ningún servidor.</p>
-                <div class="suggestions">
-                    <button class="suggestion-chip" data-q="¿Cuál es la capital de España?">¿Capital de España?</button>
-                    <button class="suggestion-chip" data-q="Explícame qué es la fotosíntesis en dos frases">Fotosíntesis en 2 frases</button>
-                    <button class="suggestion-chip" data-q="Dame 3 consejos para concentrarme mejor">Tips de concentración</button>
-                    <button class="suggestion-chip" data-q="¿Qué diferencia hay entre Java y JavaScript?">Java vs JavaScript</button>
+                <!-- Botones con preguntas sugeridas para empezar -->
+                <div class="suggestions" role="group" aria-label="Preguntas sugeridas">
+                    <button class="suggestion-chip" data-q="¿Cuál es la capital de España?" aria-label="Preguntar sobre la capital de España">¿Capital de España?</button>
+                    <button class="suggestion-chip" data-q="Explícame qué es la fotosíntesis en dos frases" aria-label="Preguntar sobre fotosíntesis">Fotosíntesis en 2 frases</button>
+                    <button class="suggestion-chip" data-q="Dame 3 consejos para concentrarme mejor" aria-label="Pedir consejos de concentración">Tips de concentración</button>
+                    <button class="suggestion-chip" data-q="¿Qué diferencia hay entre Java y JavaScript?" aria-label="Preguntar sobre diferencia entre Java y JavaScript">Java vs JavaScript</button>
                 </div>
             </div>
 
-            <!-- Mensajes -->
-            <div class="messages" id="messages"></div>
+            <!-- Contenedor de mensajes de la conversación -->
+            <div class="messages" id="messages" role="log" aria-label="Mensajes de la conversación">
+                <!-- Los mensajes se añaden dinámicamente por JavaScript -->
+            </div>
 
         </div>
 
-        <!-- Input bar -->
+        <!-- Área de entrada para escribir mensajes -->
         <div class="input-wrapper">
-            <div class="input-bar" id="inputBar">
+            <!-- Barra de entrada con textarea y botón de envío -->
+            <div class="input-bar" id="inputBar" role="region" aria-label="Entrada de mensaje">
+                <!-- Campo de texto para escribir el mensaje -->
                 <textarea
                     id="userInput"
                     placeholder="Escribe tu pregunta..."
                     rows="1"
                     maxlength="2000"
+                    aria-label="Escribe tu mensaje aquí"
+                    aria-describedby="disclaimer"
                 ></textarea>
-                <button id="sendBtn" class="send-btn" disabled>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Botón para enviar el mensaje -->
+                <button id="sendBtn" class="send-btn" disabled aria-label="Enviar mensaje" aria-disabled="true">
+                    <!-- Icono SVG de flecha para enviar -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <line x1="12" y1="19" x2="12" y2="5"/>
                         <polyline points="5 12 12 5 19 12"/>
                     </svg>
                 </button>
             </div>
-            <p class="disclaimer">La IA puede cometer errores. Verifica la información importante.</p>
+            <!-- Aviso de descargo sobre posibles errores de la IA -->
+            <p class="disclaimer" id="disclaimer">La IA puede cometer errores. Verifica la información importante.</p>
         </div>
 
     </main>
 
+    <!-- Progress bar for model download -->
+    <div class="progress-overlay" id="progressOverlay" role="dialog" aria-modal="true" aria-labelledby="progressTitle" aria-describedby="progressDesc">
+        <div class="progress-container">
+            <h3 id="progressTitle" class="progress-title">Descargando modelo de IA</h3>
+            <p id="progressDesc" class="progress-desc">Esto puede tomar unos minutos...</p>
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">0%</div>
+        </div>
+    </div>
+
     <!-- Toast de estado -->
-    <div class="toast" id="toast"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
 </body>
 </html>

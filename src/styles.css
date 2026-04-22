@@ -1,600 +1,868 @@
-/* ─── TOKENS ─────────────────────────────────────────────── */
+/* ─── VARIABLES CSS (TOKENS) ─────────────────────────────────────────────── */
+/* Definición de variables CSS para colores, fuentes, espaciado y otros tokens de diseño */
+
 :root {
-    --font-ui:    'Syne', sans-serif;
-    --font-body:  'Crimson Pro', Georgia, serif;
-    --font-mono:  'DM Mono', monospace;
+    /* Fuentes tipográficas */
+    --font-ui:    'Syne', sans-serif; /* Fuente para elementos de interfaz */
+    --font-body:  'Crimson Pro', Georgia, serif; /* Fuente para texto del cuerpo */
+    --font-mono:  'DM Mono', monospace; /* Fuente monoespaciada para código */
 
-    /* Dark theme (default) */
-    --bg:           #1a1a1a;
-    --bg-sidebar:   #111111;
-    --bg-surface:   #242424;
-    --bg-input:     #2a2a2a;
-    --bg-hover:     #2f2f2f;
+    /* Tema oscuro (por defecto) */
+    --bg:           #1a1a1a; /* Fondo principal */
+    --bg-sidebar:   #111111; /* Fondo de la barra lateral */
+    --bg-surface:   #242424; /* Fondo de superficies elevadas */
+    --bg-input:     #2a2a2a; /* Fondo de campos de entrada */
+    --bg-hover:     #2f2f2f; /* Fondo al pasar el mouse */
 
-    --border:       rgba(255,255,255,0.08);
-    --border-input: rgba(255,255,255,0.14);
+    --border:       rgba(255,255,255,0.08); /* Bordes sutiles */
+    --border-input: rgba(255,255,255,0.14); /* Bordes de inputs */
 
-    --text-primary:   #f0ede8;
-    --text-secondary: #8a8680;
-    --text-muted:     #5a5755;
+    --text-primary:   #f0ede8; /* Texto principal */
+    --text-secondary: #8a8680; /* Texto secundario */
+    --text-muted:     #5a5755; /* Texto atenuado */
 
-    --accent:         #d4a574;
-    --accent-soft:    rgba(212, 165, 116, 0.12);
-    --accent-hover:   #e8bc8c;
+    --accent:         #d4a574; /* Color de acento principal */
+    --accent-soft:    rgba(212, 165, 116, 0.12); /* Acento suave para fondos */
+    --accent-hover:   #e8bc8c; /* Acento al pasar el mouse */
 
-    --user-bg:        #2c2c2c;
-    --ai-bg:          transparent;
+    --user-bg:        #2c2c2c; /* Fondo de mensajes del usuario */
+    --ai-bg:          transparent; /* Fondo de mensajes de IA */
 
-    --send-bg:        #d4a574;
-    --send-color:     #1a1a1a;
-    --send-disabled:  #3a3a3a;
+    --send-bg:        #d4a574; /* Fondo del botón enviar */
+    --send-color:     #1a1a1a; /* Color del texto/icono del botón enviar */
+    --send-disabled:  #3a3a3a; /* Fondo del botón enviar deshabilitado */
 
-    --dot-ok:         #4ade80;
-    --dot-loading:    #d4a574;
-    --dot-error:      #f87171;
+    --dot-ok:         #4ade80; /* Color del punto de estado OK */
+    --dot-loading:    #d4a574; /* Color del punto de estado cargando */
+    --dot-error:      #f87171; /* Color del punto de estado error */
 
-    --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
-    --shadow-md:  0 4px 16px rgba(0,0,0,0.5);
+    --shadow-sm:  0 1px 3px rgba(0,0,0,0.4); /* Sombra pequeña */
+    --shadow-md:  0 4px 16px rgba(0,0,0,0.5); /* Sombra mediana */
+    --shadow-lg:  0 8px 32px rgba(0,0,0,0.6); /* Sombra grande */
 
-    --radius-sm: 10px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
+    --radius-sm: 10px; /* Radio de borde pequeño */
+    --radius-md: 16px; /* Radio de borde mediano */
+    --radius-lg: 24px; /* Radio de borde grande */
 
-    --sidebar-w: 260px;
-    --topbar-h:  56px;
+    --sidebar-w: 260px; /* Ancho de la barra lateral */
+    --topbar-h:  56px; /* Altura de la barra superior */
+
+    /* Outline de foco accesible */
+    --focus-outline: 2px solid var(--accent);
+    --focus-outline-offset: 2px;
 }
 
+/* Variables para tema claro */
 [data-theme="light"] {
-    --bg:           #faf9f7;
-    --bg-sidebar:   #f2f0ec;
-    --bg-surface:   #ffffff;
-    --bg-input:     #ffffff;
-    --bg-hover:     #ede9e3;
+    --bg:           #faf9f7; /* Fondo principal claro */
+    --bg-sidebar:   #f2f0ec; /* Fondo de sidebar claro */
+    --bg-surface:   #ffffff; /* Fondo de superficies claro */
+    --bg-input:     #ffffff; /* Fondo de inputs claro */
+    --bg-hover:     #ede9e3; /* Fondo hover claro */
 
-    --border:       rgba(0,0,0,0.07);
-    --border-input: rgba(0,0,0,0.15);
+    --border:       rgba(0,0,0,0.07); /* Bordes sutiles claros */
+    --border-input: rgba(0,0,0,0.15); /* Bordes de inputs claros */
 
-    --text-primary:   #1c1917;
-    --text-secondary: #6b6560;
-    --text-muted:     #a09890;
+    --text-primary:   #1c1917; /* Texto principal oscuro */
+    --text-secondary: #6b6560; /* Texto secundario */
+    --text-muted:     #a09890; /* Texto atenuado */
 
-    --accent:         #b5703a;
-    --accent-soft:    rgba(181, 112, 58, 0.1);
-    --accent-hover:   #8f5520;
+    --accent:         #b5703a; /* Acento marrón para tema claro */
+    --accent-soft:    rgba(181, 112, 58, 0.1); /* Acento suave claro */
+    --accent-hover:   #8f5520; /* Acento hover claro */
 
-    --user-bg:        #f0ece5;
-    --ai-bg:          transparent;
+    --user-bg:        #f0ece5; /* Fondo mensajes usuario claro */
+    --ai-bg:          transparent; /* Fondo mensajes IA */
 
-    --send-bg:        #b5703a;
-    --send-color:     #ffffff;
-    --send-disabled:  #d9d5cf;
+    --send-bg:        #b5703a; /* Fondo botón enviar claro */
+    --send-color:     #ffffff; /* Color texto botón enviar */
+    --send-disabled:  #d9d5cf; /* Fondo botón deshabilitado claro */
 
-    --shadow-sm:  0 1px 3px rgba(0,0,0,0.08);
+    --shadow-sm:  0 1px 3px rgba(0,0,0,0.08); /* Sombras más sutiles en claro */
     --shadow-md:  0 4px 16px rgba(0,0,0,0.12);
 }
 
-/* ─── RESET ──────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ─── RESET Y ESTILOS BASE ──────────────────────────────────────────────── */
+/* Reset de estilos por defecto del navegador y configuración base */
 
-html { font-size: 10px; scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } /* Reset universal */
+
+html { font-size: 10px; scroll-behavior: smooth; } /* Tamaño base de fuente y scroll suave */
 
 body {
-    font-family: var(--font-body);
-    font-size: 1.6rem;
-    background: var(--bg);
-    color: var(--text-primary);
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
-    transition: background 0.3s ease, color 0.3s ease;
-    -webkit-font-smoothing: antialiased;
+    font-family: var(--font-body); /* Fuente principal para texto */
+    font-size: 1.6rem; /* Tamaño de fuente base */
+    background: var(--bg); /* Fondo del body */
+    color: var(--text-primary); /* Color de texto principal */
+    display: flex; /* Layout flexbox */
+    height: 100vh; /* Altura completa de viewport */
+    overflow: hidden; /* Ocultar scroll del body */
+    transition: background 0.3s ease, color 0.3s ease; /* Transiciones suaves para temas */
+    -webkit-font-smoothing: antialiased; /* Suavizado de fuentes en WebKit */
 }
 
-/* ─── SIDEBAR ─────────────────────────────────────────────── */
+/* ─── OUTLINES DE FOCO PARA ACCESIBILIDAD ──────────────────────────────────────── */
+/* Estilos de foco visibles para navegación por teclado */
+
+*:focus-visible {
+    outline: var(--focus-outline); /* Outline visible para elementos enfocados */
+    outline-offset: var(--focus-outline-offset); /* Offset del outline */
+}
+
+/* Ocultar outline para usuarios de mouse, mostrar para teclado */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ─── BARRA LATERAL (SIDEBAR) ─────────────────────────────────────────────── */
+/* Estilos para la barra lateral con navegación e historial */
+
 .sidebar {
-    width: var(--sidebar-w);
-    min-width: var(--sidebar-w);
-    background: var(--bg-sidebar);
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    padding: 1.6rem 1.2rem;
-    gap: 0.8rem;
-    transition: transform 0.3s ease, background 0.3s ease;
-    z-index: 100;
-    overflow: hidden;
+    width: var(--sidebar-w); /* Ancho fijo de la sidebar */
+    min-width: var(--sidebar-w); /* Ancho mínimo */
+    background: var(--bg-sidebar); /* Fondo de la sidebar */
+    border-right: 1px solid var(--border); /* Borde derecho */
+    display: flex; /* Layout flexbox */
+    flex-direction: column; /* Dirección vertical */
+    padding: 1.6rem 1.2rem; /* Padding interno */
+    gap: 0.8rem; /* Espacio entre elementos hijos */
+    transition: transform 0.3s ease, background 0.3s ease; /* Transiciones suaves */
+    z-index: 100; /* Z-index alto */
+    overflow: hidden; /* Ocultar overflow */
 }
 
+/* Encabezado de la sidebar con logo y botón de tema */
 .sidebar-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.4rem 0.6rem;
-    margin-bottom: 0.4rem;
+    display: flex; /* Layout horizontal */
+    align-items: center; /* Alinear verticalmente al centro */
+    justify-content: space-between; /* Espacio entre elementos */
+    padding: 0.4rem 0.6rem; /* Padding interno */
+    margin-bottom: 0.4rem; /* Margen inferior */
 }
 
+/* Contenedor del logo */
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
+    display: flex; /* Layout horizontal */
+    align-items: center; /* Alinear verticalmente */
+    gap: 0.9rem; /* Espacio entre icono y texto */
 }
 
+/* Icono del logo */
 .logo-icon {
-    font-size: 1.8rem;
-    color: var(--accent);
-    line-height: 1;
+    font-size: 1.8rem; /* Tamaño del icono */
+    color: var(--accent); /* Color de acento */
+    line-height: 1; /* Altura de línea */
 }
 
+/* Texto del logo */
 .logo-text {
-    font-family: var(--font-ui);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: 0.02em;
+    font-family: var(--font-ui); /* Fuente de interfaz */
+    font-size: 1.5rem; /* Tamaño de fuente */
+    font-weight: 700; /* Peso de fuente */
+    color: var(--text-primary); /* Color del texto */
+    letter-spacing: 0.02em; /* Espaciado de letras */
 }
 
+/* Botón de cambio de tema */
 .theme-toggle {
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
+    background: none; /* Sin fondo */
+    border: 1px solid var(--border); /* Borde sutil */
+    color: var(--text-secondary); /* Color del texto/icono */
+    width: 3.2rem; /* Ancho fijo */
+    height: 3.2rem; /* Altura fija */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+    display: flex; /* Centrar contenido */
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
-    transition: all 0.2s ease;
+    font-size: 1.4rem; /* Tamaño del icono */
+    transition: all 0.2s ease; /* Transición suave */
 }
+
+/* Hover del botón de tema */
 .theme-toggle:hover {
-    background: var(--bg-hover);
-    color: var(--accent);
-    border-color: var(--accent);
+    background: var(--bg-hover); /* Fondo al pasar mouse */
+    color: var(--accent); /* Color de acento */
+    border-color: var(--accent); /* Borde de acento */
 }
 
+/* Botón de nueva conversación */
 .new-chat-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: var(--accent-soft);
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: var(--radius-sm);
-    padding: 1rem 1.4rem;
-    font-family: var(--font-ui);
-    font-size: 1.3rem;
-    font-weight: 500;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.2s ease;
-    letter-spacing: 0.01em;
+    display: flex; /* Layout horizontal */
+    align-items: center; /* Alinear verticalmente */
+    gap: 0.8rem; /* Espacio entre icono y texto */
+    background: var(--accent-soft); /* Fondo suave de acento */
+    color: var(--accent); /* Color de acento */
+    border: 1px solid var(--accent); /* Borde de acento */
+    border-radius: var(--radius-sm); /* Bordes redondeados */
+    padding: 1rem 1.4rem; /* Padding interno */
+    font-family: var(--font-ui); /* Fuente de interfaz */
+    font-size: 1.3rem; /* Tamaño de fuente */
+    font-weight: 500; /* Peso de fuente */
+    cursor: pointer; /* Cursor de puntero */
+    width: 100%; /* Ancho completo */
+    transition: all 0.2s ease; /* Transición suave */
+    letter-spacing: 0.01em; /* Espaciado de letras */
 }
+
+/* Hover del botón nueva conversación */
 .new-chat-btn:hover {
-    background: var(--accent);
-    color: var(--send-color);
+    background: var(--accent); /* Fondo de acento sólido */
+    color: var(--send-color); /* Color del texto */
 }
 
+/* Etiqueta del historial */
 .history-label {
-    font-family: var(--font-ui);
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.8rem 0.6rem 0.4rem;
-    margin-top: 0.8rem;
+    font-family: var(--font-ui); /* Fuente de interfaz */
+    font-size: 1.05rem; /* Tamaño de fuente */
+    font-weight: 500; /* Peso de fuente */
+    color: var(--text-muted); /* Color atenuado */
+    letter-spacing: 0.08em; /* Espaciado de letras */
+    text-transform: uppercase; /* Mayúsculas */
+    padding: 0.8rem 0.6rem 0.4rem; /* Padding */
+    margin-top: 0.8rem; /* Margen superior */
 }
 
+/* Lista del historial de conversaciones */
 .history-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
+    list-style: none; /* Sin viñetas */
+    display: flex; /* Layout flexbox */
+    flex-direction: column; /* Dirección vertical */
+    gap: 0.2rem; /* Espacio entre items */
+    flex: 1; /* Ocupar espacio disponible */
+    overflow-y: auto; /* Scroll vertical */
+    overflow-x: hidden; /* Sin scroll horizontal */
 }
+
+/* Scrollbar personalizado para la lista */
 .history-list::-webkit-scrollbar { width: 3px; }
 .history-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 
+/* Item individual del historial */
 .history-item {
-    display: block;
-    padding: 0.9rem 1rem;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-body);
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    cursor: pointer;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: all 0.15s ease;
-    border: 1px solid transparent;
+    display: block; /* Comportamiento de bloque */
+    padding: 0.9rem 1rem; /* Padding interno */
+    border-radius: var(--radius-sm); /* Bordes redondeados */
+    font-family: var(--font-body); /* Fuente del cuerpo */
+    font-size: 1.4rem; /* Tamaño de fuente */
+    color: var(--text-secondary); /* Color secundario */
+    cursor: pointer; /* Cursor de puntero */
+    white-space: nowrap; /* Sin wrap de texto */
+    overflow: hidden; /* Ocultar overflow */
+    text-overflow: ellipsis; /* Puntos suspensivos */
+    transition: all 0.15s ease; /* Transición suave */
+    border: 1px solid transparent; /* Borde transparente por defecto */
 }
+
+/* Hover del item del historial */
 .history-item:hover {
-    background: var(--bg-hover);
-    color: var(--text-primary);
+    background: var(--bg-hover); /* Fondo al pasar mouse */
+    color: var(--text-primary); /* Color principal */
 }
+
+/* Item activo del historial */
 .history-item.active {
-    background: var(--accent-soft);
-    color: var(--accent);
-    border-color: rgba(212, 165, 116, 0.2);
+    background: var(--accent-soft); /* Fondo suave de acento */
+    color: var(--accent); /* Color de acento */
+    border-color: rgba(212, 165, 116, 0.2); /* Borde sutil de acento */
 }
 
+/* Pie de la sidebar */
 .sidebar-footer {
-    padding: 0.8rem 0.4rem 0;
-    border-top: 1px solid var(--border);
-    margin-top: auto;
+    padding: 0.8rem 0.4rem 0; /* Padding */
+    border-top: 1px solid var(--border); /* Borde superior */
+    margin-top: auto; /* Empujar al final */
 }
 
+/* Badge del modelo de IA */
 .model-badge {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-family: var(--font-mono);
-    font-size: 1.15rem;
-    color: var(--text-muted);
-    padding: 0.6rem 0.4rem;
+    display: flex; /* Layout horizontal */
+    align-items: center; /* Alinear verticalmente */
+    gap: 0.8rem; /* Espacio entre punto y texto */
+    font-family: var(--font-mono); /* Fuente monoespaciada */
+    font-size: 1.15rem; /* Tamaño de fuente */
+    color: var(--text-muted); /* Color atenuado */
+    padding: 0.6rem 0.4rem; /* Padding */
 }
 
+/* Punto indicador del modelo */
 .model-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--dot-ok);
-    box-shadow: 0 0 6px var(--dot-ok);
-    flex-shrink: 0;
-    animation: pulse-dot 2.5s ease-in-out infinite;
+    width: 7px; /* Ancho */
+    height: 7px; /* Altura */
+    border-radius: 50%; /* Circular */
+    background: var(--dot-ok); /* Color OK por defecto */
+    box-shadow: 0 0 6px var(--dot-ok); /* Sombra luminosa */
+    flex-shrink: 0; /* No encogerse */
+    animation: pulse-dot 2.5s ease-in-out infinite; /* Animación de pulso */
 }
 
+/* Animación de pulso para el punto */
 @keyframes pulse-dot {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    0%, 100% { opacity: 1; } /* Opacidad completa */
+    50% { opacity: 0.5; } /* Opacidad reducida */
 }
 
-/* ─── MAIN ────────────────────────────────────────────────── */
+/* ─── CONTENEDOR PRINCIPAL (MAIN) ────────────────────────────────────────────────── */
+/* Estilos para el área principal de la aplicación */
+
 .main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background: var(--bg);
-    transition: background 0.3s ease;
+    flex: 1; /* Ocupar espacio restante */
+    display: flex; /* Layout flexbox */
+    flex-direction: column; /* Dirección vertical */
+    overflow: hidden; /* Ocultar overflow */
+    background: var(--bg); /* Fondo */
+    transition: background 0.3s ease; /* Transición de fondo */
 }
 
-/* ─── TOPBAR ──────────────────────────────────────────────── */
+/* ─── BARRA SUPERIOR (TOPBAR) ──────────────────────────────────────────────── */
+/* Estilos para la barra superior con título y controles */
+
 .topbar {
-    height: var(--topbar-h);
-    display: flex;
-    align-items: center;
-    padding: 0 2rem;
-    border-bottom: 1px solid var(--border);
-    gap: 1.4rem;
-    flex-shrink: 0;
+    height: var(--topbar-h); /* Altura fija */
+    display: flex; /* Layout horizontal */
+    align-items: center; /* Alinear verticalmente al centro */
+    padding: 0 2rem; /* Padding horizontal */
+    border-bottom: 1px solid var(--border); /* Borde inferior */
+    gap: 1.4rem; /* Espacio entre elementos */
+    flex-shrink: 0; /* No encogerse */
 }
 
+/* Botón toggle de sidebar (oculto en desktop) */
 .sidebar-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 0.4rem;
-    line-height: 1;
+    display: none; /* Oculto por defecto */
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    color: var(--text-secondary); /* Color secundario */
+    font-size: 2rem; /* Tamaño grande para móvil */
+    cursor: pointer; /* Cursor de puntero */
+    padding: 0.4rem; /* Padding */
+    line-height: 1; /* Altura de línea */
 }
 
+/* Título en la barra superior */
 .topbar-title {
-    font-family: var(--font-ui);
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    flex: 1;
-    letter-spacing: 0.03em;
+    font-family: var(--font-ui); /* Fuente de interfaz */
+    font-size: 1.4rem; /* Tamaño de fuente */
+    font-weight: 500; /* Peso medio */
+    color: var(--text-secondary); /* Color secundario */
+    flex: 1; /* Ocupar espacio disponible */
+    letter-spacing: 0.03em; /* Espaciado de letras */
 }
 
+/* Indicador de estado (punto) */
 .status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    transition: background 0.3s, box-shadow 0.3s;
+    width: 8px; /* Ancho */
+    height: 8px; /* Altura */
+    border-radius: 50%; /* Circular */
+    flex-shrink: 0; /* No encogerse */
+    transition: background 0.3s, box-shadow 0.3s; /* Transiciones */
 }
-.status-dot.ok      { background: var(--dot-ok);      box-shadow: 0 0 6px var(--dot-ok); }
-.status-dot.loading { background: var(--dot-loading);  animation: blink 1.2s step-end infinite; }
-.status-dot.error   { background: var(--dot-error);    box-shadow: 0 0 6px var(--dot-error); }
 
+/* Estados del punto indicador */
+.status-dot.ok      { background: var(--dot-ok);      box-shadow: 0 0 6px var(--dot-ok); } /* Verde para OK */
+.status-dot.loading { background: var(--dot-loading);  animation: blink 1.2s step-end infinite; } /* Acento con parpadeo */
+.status-dot.error   { background: var(--dot-error);    box-shadow: 0 0 6px var(--dot-error); } /* Rojo para error */
+
+/* Animación de parpadeo */
 @keyframes blink { 50% { opacity: 0; } }
 
-/* ─── CHAT AREA ───────────────────────────────────────────── */
+/* ─── ÁREA DE CONVERSACIÓN (CHAT AREA) ───────────────────────────────────────────── */
+/* Estilos para el área donde se muestran los mensajes */
+
 .chat-area {
-    flex: 1;
-    overflow-y: auto;
-    padding: 3rem 0;
-    scroll-behavior: smooth;
+    flex: 1; /* Ocupar espacio disponible */
+    overflow-y: auto; /* Scroll vertical */
+    padding: 3rem 0; /* Padding vertical */
+    scroll-behavior: smooth; /* Scroll suave */
 }
+
+/* Scrollbar personalizado para el área de chat */
 .chat-area::-webkit-scrollbar { width: 4px; }
 .chat-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 
-/* ─── EMPTY STATE ─────────────────────────────────────────── */
+/* ─── ESTADO VACÍO (EMPTY STATE) ─────────────────────────────────────────── */
+/* Estilos para la pantalla de bienvenida cuando no hay mensajes */
+
 .empty-state {
-    max-width: 560px;
-    margin: 4rem auto;
-    padding: 0 2rem;
-    text-align: center;
-    animation: fadeUp 0.5s ease both;
+    max-width: 560px; /* Ancho máximo */
+    margin: 4rem auto; /* Centrado vertical y horizontal */
+    padding: 0 2rem; /* Padding horizontal */
+    text-align: center; /* Texto centrado */
+    animation: fadeUp 0.5s ease both; /* Animación de entrada */
 }
 
+/* Icono decorativo del estado vacío */
 .empty-icon {
-    font-size: 4rem;
-    color: var(--accent);
-    margin-bottom: 2rem;
-    display: block;
-    animation: float 3s ease-in-out infinite;
+    font-size: 4rem; /* Tamaño grande */
+    color: var(--accent); /* Color de acento */
+    margin-bottom: 2rem; /* Margen inferior */
+    display: block; /* Comportamiento de bloque */
+    animation: float 3s ease-in-out infinite; /* Animación de flotación */
 }
 
+/* Animación de flotación */
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-8px); }
+    0%, 100% { transform: translateY(0); } /* Posición original */
+    50%       { transform: translateY(-8px); } /* Mover hacia arriba */
 }
 
+/* Título del estado vacío */
 .empty-title {
-    font-family: var(--font-ui);
-    font-size: 2.6rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 1.2rem;
-    letter-spacing: -0.01em;
+    font-family: var(--font-ui); /* Fuente de interfaz */
+    font-size: 2.6rem; /* Tamaño grande */
+    font-weight: 700; /* Peso fuerte */
+    color: var(--text-primary); /* Color principal */
+    margin-bottom: 1.2rem; /* Margen inferior */
+    letter-spacing: -0.01em; /* Espaciado de letras */
 }
 
+/* Subtítulo del estado vacío */
 .empty-sub {
-    font-size: 1.6rem;
-    color: var(--text-secondary);
-    line-height: 1.65;
-    margin-bottom: 3rem;
-    font-style: italic;
+    font-size: 1.6rem; /* Tamaño mediano */
+    color: var(--text-secondary); /* Color secundario */
+    line-height: 1.65; /* Altura de línea */
+    margin-bottom: 3rem; /* Margen inferior */
+    font-style: italic; /* Cursiva */
 }
-.empty-sub em { color: var(--accent); font-style: normal; }
 
+/* Énfasis en el subtítulo */
+.empty-sub em { color: var(--accent); font-style: normal; } /* Color de acento, sin cursiva */
+
+/* Contenedor de sugerencias */
 .suggestions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    justify-content: center;
+    display: flex; /* Layout horizontal */
+    flex-wrap: wrap; /* Permitir wrap */
+    gap: 0.8rem; /* Espacio entre botones */
+    justify-content: center; /* Centrar horizontalmente */
 }
 
+/* Botón de sugerencia individual */
 .suggestion-chip {
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
-    border-radius: 999px;
-    padding: 0.8rem 1.6rem;
-    font-family: var(--font-body);
-    font-size: 1.4rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    background: var(--bg-surface); /* Fondo de superficie */
+    border: 1px solid var(--border); /* Borde sutil */
+    color: var(--text-secondary); /* Color secundario */
+    border-radius: 999px; /* Bordes muy redondeados */
+    padding: 0.8rem 1.6rem; /* Padding interno */
+    font-family: var(--font-body); /* Fuente del cuerpo */
+    font-size: 1.4rem; /* Tamaño de fuente */
+    cursor: pointer; /* Cursor de puntero */
+    transition: all 0.2s ease; /* Transición suave */
 }
+
+/* Hover del botón de sugerencia */
 .suggestion-chip:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-soft);
-    transform: translateY(-1px);
+    border-color: var(--accent); /* Borde de acento */
+    color: var(--accent); /* Color de acento */
+    background: var(--accent-soft); /* Fondo suave de acento */
+    transform: translateY(-1px); /* Mover ligeramente hacia arriba */
 }
 
-/* ─── MESSAGES ────────────────────────────────────────────── */
+/* ─── MENSAJES ────────────────────────────────────────────── */
+/* Estilos para los mensajes de la conversación */
+
+/* Contenedor de mensajes */
 .messages {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    max-width: 720px; /* Ancho máximo */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 0 2rem; /* Padding horizontal */
+    display: flex; /* Layout flexbox */
+    flex-direction: column; /* Dirección vertical */
+    gap: 0; /* Sin espacio entre mensajes */
 }
 
+/* Estructura base de un mensaje */
 .message {
-    display: flex;
-    gap: 1.6rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--border);
-    animation: fadeUp 0.25s ease both;
+    display: flex; /* Layout horizontal */
+    gap: 1.6rem; /* Espacio entre avatar y contenido */
+    padding: 2rem 0; /* Padding vertical */
+    border-bottom: 1px solid var(--border); /* Borde inferior */
+    animation: fadeUp 0.25s ease both; /* Animación de entrada */
+    transition: all 0.2s ease; /* Transición suave */
 }
+
+/* Último mensaje sin borde inferior */
 .message:last-child { border-bottom: none; }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
+/* Mensaje de error */
+.message.error {
+    background: rgba(248, 113, 113, 0.05); /* Fondo rojo sutil */
+    border-left: 3px solid var(--dot-error); /* Borde izquierdo rojo */
+    padding-left: 1rem; /* Padding izquierdo extra */
+    animation: shake 0.5s ease both; /* Animación de sacudida */
 }
 
+/* Animación de sacudida para errores */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); } /* Posición original */
+    25% { transform: translateX(-5px); } /* Mover a la izquierda */
+    75% { transform: translateX(5px); } /* Mover a la derecha */
+}
+
+/* Animación de fade up */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); } /* Estado inicial */
+    to   { opacity: 1; transform: translateY(0); } /* Estado final */
+}
+
+/* Avatar del mensaje */
 .message-avatar {
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: 50%;
-    display: flex;
+    width: 3.2rem; /* Ancho fijo */
+    height: 3.2rem; /* Altura fija */
+    border-radius: 50%; /* Circular */
+    display: flex; /* Centrar contenido */
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
-    flex-shrink: 0;
-    margin-top: 0.2rem;
-    font-family: var(--font-mono);
+    font-size: 1.4rem; /* Tamaño de fuente */
+    flex-shrink: 0; /* No encogerse */
+    margin-top: 0.2rem; /* Margen superior */
+    font-family: var(--font-mono); /* Fuente monoespaciada */
 }
 
+/* Avatar para mensajes del usuario */
 .message.user .message-avatar {
-    background: var(--accent);
-    color: var(--send-color);
-    font-size: 1.2rem;
-    font-weight: 600;
+    background: var(--accent); /* Fondo de acento */
+    color: var(--send-color); /* Color del texto */
+    font-size: 1.2rem; /* Tamaño más pequeño */
+    font-weight: 600; /* Peso fuerte */
 }
 
+/* Avatar para mensajes de la IA */
 .message.ai .message-avatar {
-    background: var(--accent-soft);
-    border: 1px solid var(--border);
-    color: var(--accent);
+    background: var(--accent-soft); /* Fondo suave de acento */
+    border: 1px solid var(--border); /* Borde sutil */
+    color: var(--accent); /* Color de acento */
 }
 
+/* Contenedor del contenido del mensaje */
 .message-content {
-    flex: 1;
-    padding-top: 0.4rem;
+    flex: 1; /* Ocupar espacio restante */
+    padding-top: 0.4rem; /* Padding superior */
 }
 
+/* Etiqueta del rol del mensaje */
 .message-role {
-    font-family: var(--font-ui);
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
+    font-family: var(--font-ui); /* Fuente de interfaz */
+    font-size: 1.2rem; /* Tamaño pequeño */
+    font-weight: 600; /* Peso fuerte */
+    color: var(--text-muted); /* Color atenuado */
+    letter-spacing: 0.06em; /* Espaciado de letras */
+    text-transform: uppercase; /* Mayúsculas */
+    margin-bottom: 0.8rem; /* Margen inferior */
 }
 
+/* Texto del mensaje */
 .message-text {
-    font-family: var(--font-body);
-    font-size: 1.65rem;
-    line-height: 1.7;
-    color: var(--text-primary);
-    white-space: pre-wrap;
+    font-family: var(--font-body); /* Fuente del cuerpo */
+    font-size: 1.65rem; /* Tamaño mediano */
+    line-height: 1.7; /* Altura de línea */
+    color: var(--text-primary); /* Color principal */
+    white-space: pre-wrap; /* Preservar espacios y saltos de línea */
 }
 
-/* Typing indicator */
+/* Indicador de typing (puntos animados) */
 .typing-indicator {
-    display: inline-flex;
-    gap: 4px;
-    align-items: center;
-    padding: 0.4rem 0;
+    display: inline-flex; /* Layout horizontal inline */
+    gap: 4px; /* Espacio entre puntos */
+    align-items: center; /* Alinear verticalmente */
+    padding: 0.4rem 0; /* Padding vertical */
 }
+
+/* Punto individual del indicador */
 .typing-indicator span {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: typing-bounce 1.2s ease-in-out infinite;
+    width: 7px; /* Ancho */
+    height: 7px; /* Altura */
+    border-radius: 50%; /* Circular */
+    background: var(--accent); /* Color de acento */
+    animation: typing-bounce 1.2s ease-in-out infinite; /* Animación de rebote */
 }
-.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
 
+/* Retraso de animación para cada punto */
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; } /* Segundo punto */
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; } /* Tercer punto */
+
+/* Animación de rebote para typing */
 @keyframes typing-bounce {
-    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
-    40%            { transform: scale(1);   opacity: 1; }
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; } /* Estado pequeño y transparente */
+    40%            { transform: scale(1);   opacity: 1; } /* Estado grande y opaco */
 }
 
-/* ─── INPUT AREA ──────────────────────────────────────────── */
+/* ─── ÁREA DE ENTRADA ──────────────────────────────────────────── */
+/* Estilos para la barra de entrada de mensajes */
+
+/* Contenedor del área de entrada */
 .input-wrapper {
-    padding: 1.2rem 2rem 1.6rem;
-    border-top: 1px solid var(--border);
-    background: var(--bg);
-    flex-shrink: 0;
-    transition: background 0.3s ease;
+    padding: 1.2rem 2rem 1.6rem; /* Padding interno */
+    border-top: 1px solid var(--border); /* Borde superior */
+    background: var(--bg); /* Fondo */
+    flex-shrink: 0; /* No encogerse */
+    transition: background 0.3s ease; /* Transición de fondo */
 }
 
+/* Barra de entrada principal */
 .input-bar {
-    max-width: 720px;
-    margin: 0 auto;
-    background: var(--bg-input);
-    border: 1px solid var(--border-input);
-    border-radius: var(--radius-lg);
-    display: flex;
-    align-items: flex-end;
-    gap: 0.8rem;
-    padding: 1rem 1rem 1rem 1.8rem;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: var(--shadow-sm);
+    max-width: 720px; /* Ancho máximo */
+    margin: 0 auto; /* Centrado horizontal */
+    background: var(--bg-input); /* Fondo de input */
+    border: 1px solid var(--border-input); /* Borde de input */
+    border-radius: var(--radius-lg); /* Bordes muy redondeados */
+    display: flex; /* Layout horizontal */
+    align-items: flex-end; /* Alinear al final */
+    gap: 0.8rem; /* Espacio entre elementos */
+    padding: 1rem 1rem 1rem 1.8rem; /* Padding interno */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transiciones */
+    box-shadow: var(--shadow-sm); /* Sombra sutil */
 }
 
+/* Estado focus de la barra de entrada */
 .input-bar:focus-within {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow-sm);
+    border-color: var(--accent); /* Borde de acento */
+    box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow-sm); /* Sombra de foco */
 }
 
+/* Campo de texto (textarea) */
 #userInput {
-    flex: 1;
-    background: none;
-    border: none;
-    outline: none;
-    resize: none;
-    font-family: var(--font-body);
-    font-size: 1.65rem;
-    color: var(--text-primary);
-    line-height: 1.5;
-    max-height: 160px;
-    overflow-y: auto;
-    padding: 0.4rem 0;
+    flex: 1; /* Ocupar espacio disponible */
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    outline: none; /* Sin outline */
+    resize: none; /* Sin redimensionar */
+    font-family: var(--font-body); /* Fuente del cuerpo */
+    font-size: 1.65rem; /* Tamaño de fuente */
+    color: var(--text-primary); /* Color del texto */
+    line-height: 1.5; /* Altura de línea */
+    max-height: 160px; /* Altura máxima */
+    overflow-y: auto; /* Scroll vertical si es necesario */
+    padding: 0.4rem 0; /* Padding vertical */
 }
-#userInput::placeholder { color: var(--text-muted); }
+
+/* Placeholder del textarea */
+#userInput::placeholder { color: var(--text-muted); } /* Color atenuado */
+
+/* Scrollbar del textarea */
 #userInput::-webkit-scrollbar { width: 3px; }
 #userInput::-webkit-scrollbar-thumb { background: var(--border); }
 
+/* Botón de envío */
 .send-btn {
-    width: 3.8rem;
-    height: 3.8rem;
-    border-radius: 50%;
-    background: var(--send-bg);
-    border: none;
-    cursor: pointer;
-    display: flex;
+    width: 3.8rem; /* Ancho fijo */
+    height: 3.8rem; /* Altura fija */
+    border-radius: 50%; /* Circular */
+    background: var(--send-bg); /* Fondo de acento */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor de puntero */
+    display: flex; /* Centrar contenido */
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.2s ease;
-    color: var(--send-color);
+    flex-shrink: 0; /* No encogerse */
+    transition: all 0.2s ease; /* Transición suave */
+    color: var(--send-color); /* Color del icono */
 }
-.send-btn svg { width: 1.6rem; height: 1.6rem; }
+
+/* Icono SVG del botón */
+.send-btn svg { width: 1.6rem; height: 1.6rem; } /* Tamaño del icono */
+
+/* Hover del botón de envío */
 .send-btn:not(:disabled):hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4);
+    transform: scale(1.1); /* Escalar ligeramente */
+    box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4); /* Sombra luminosa */
 }
+
+/* Botón de envío deshabilitado */
 .send-btn:disabled {
-    background: var(--send-disabled);
-    color: var(--text-muted);
-    cursor: not-allowed;
+    background: var(--send-disabled); /* Fondo deshabilitado */
+    color: var(--text-muted); /* Color atenuado */
+    cursor: not-allowed; /* Cursor no permitido */
 }
 
+/* Aviso de descargo de responsabilidad */
 .disclaimer {
-    max-width: 720px;
-    margin: 0.8rem auto 0;
-    text-align: center;
-    font-family: var(--font-mono);
-    font-size: 1.05rem;
-    color: var(--text-muted);
+    max-width: 720px; /* Ancho máximo */
+    margin: 0.8rem auto 0; /* Margen superior, centrado */
+    text-align: center; /* Texto centrado */
+    font-family: var(--font-mono); /* Fuente monoespaciada */
+    font-size: 1.05rem; /* Tamaño pequeño */
+    color: var(--text-muted); /* Color atenuado */
 }
 
-/* ─── TOAST ───────────────────────────────────────────────── */
+/* ─── NOTIFICACIÓN TOAST ───────────────────────────────────────────────── */
+/* Estilos para las notificaciones temporales */
+
+/* Elemento toast */
 .toast {
-    position: fixed;
-    bottom: 9rem;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
-    padding: 1rem 2rem;
-    border-radius: 999px;
-    font-family: var(--font-mono);
-    font-size: 1.2rem;
-    box-shadow: var(--shadow-md);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    z-index: 200;
+    position: fixed; /* Posición fija */
+    bottom: 9rem; /* Desde abajo */
+    left: 50%; /* Centrado horizontal */
+    transform: translateX(-50%) translateY(10px); /* Centrado y offset inicial */
+    background: var(--bg-surface); /* Fondo de superficie */
+    border: 1px solid var(--border); /* Borde sutil */
+    color: var(--text-secondary); /* Color secundario */
+    padding: 1rem 2rem; /* Padding interno */
+    border-radius: 999px; /* Bordes muy redondeados */
+    font-family: var(--font-mono); /* Fuente monoespaciada */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    box-shadow: var(--shadow-md); /* Sombra mediana */
+    opacity: 0; /* Inicialmente transparente */
+    pointer-events: none; /* No interactivo inicialmente */
+    transition: all 0.3s ease; /* Transición suave */
+    white-space: nowrap; /* Sin wrap de texto */
+    z-index: 200; /* Z-index alto */
 }
+
+/* Estado visible del toast */
 .toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    opacity: 1; /* Opaco */
+    transform: translateX(-50%) translateY(0); /* Posición final */
 }
 
-/* ─── RESPONSIVE ──────────────────────────────────────────── */
-@media (max-width: 680px) {
+/* ─── OVERLAY DE PROGRESO ───────────────────────────────────── */
+/* Estilos para el overlay de descarga del modelo */
+
+/* Overlay de fondo */
+.progress-overlay {
+    position: fixed; /* Posición fija */
+    top: 0; left: 0; right: 0; bottom: 0; /* Cubrir toda la pantalla */
+    background: rgba(0,0,0,0.8); /* Fondo negro semi-transparente */
+    backdrop-filter: blur(4px); /* Efecto blur */
+    display: flex; /* Centrar contenido */
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Inicialmente transparente */
+    pointer-events: none; /* No interactivo inicialmente */
+    transition: opacity 0.3s ease; /* Transición de opacidad */
+    z-index: 1500; /* Z-index muy alto */
+}
+
+/* Estado visible del overlay */
+.progress-overlay.show {
+    opacity: 1; /* Opaco */
+    pointer-events: auto; /* Interactivo */
+}
+
+/* Contenedor del progreso */
+.progress-container {
+    background: var(--bg-surface); /* Fondo de superficie */
+    border: 1px solid var(--border); /* Borde sutil */
+    border-radius: var(--radius-lg); /* Bordes redondeados */
+    padding: 2.5rem; /* Padding interno */
+    max-width: 400px; /* Ancho máximo */
+    width: 90%; /* Ancho responsive */
+    text-align: center; /* Texto centrado */
+    box-shadow: var(--shadow-lg); /* Sombra grande */
+    animation: slideUp 0.3s ease both; /* Animación de entrada */
+}
+
+/* Animación de slide up */
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; } /* Estado inicial */
+    to   { transform: translateY(0); opacity: 1; } /* Estado final */
+}
+
+/* Título del progreso */
+.progress-title {
+    font-family: var(--font-ui); /* Fuente de interfaz */
+    font-size: 1.8rem; /* Tamaño grande */
+    font-weight: 700; /* Peso fuerte */
+    color: var(--text-primary); /* Color principal */
+    margin-bottom: 0.5rem; /* Margen inferior */
+}
+
+/* Descripción del progreso */
+.progress-desc {
+    font-size: 1.4rem; /* Tamaño mediano */
+    color: var(--text-secondary); /* Color secundario */
+    margin-bottom: 2rem; /* Margen inferior */
+}
+
+/* Barra de progreso */
+.progress-bar {
+    width: 100%; /* Ancho completo */
+    height: 8px; /* Altura fija */
+    background: var(--bg-input); /* Fondo de input */
+    border-radius: 4px; /* Bordes redondeados */
+    overflow: hidden; /* Ocultar overflow */
+    margin-bottom: 1rem; /* Margen inferior */
+}
+
+/* Relleno de la barra de progreso */
+.progress-fill {
+    height: 100%; /* Altura completa */
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover)); /* Gradiente de acento */
+    border-radius: 4px; /* Bordes redondeados */
+    width: 0%; /* Inicialmente vacío */
+    transition: width 0.3s ease; /* Transición de ancho */
+    animation: progressPulse 2s ease-in-out infinite; /* Animación de pulso */
+}
+
+/* Animación de pulso para la barra */
+@keyframes progressPulse {
+    0%, 100% { opacity: 1; } /* Opacidad completa */
+    50% { opacity: 0.7; } /* Opacidad reducida */
+}
+
+/* Texto del porcentaje */
+.progress-text {
+    font-family: var(--font-mono); /* Fuente monoespaciada */
+    font-size: 1.4rem; /* Tamaño mediano */
+    color: var(--accent); /* Color de acento */
+    font-weight: 500; /* Peso medio */
+}
+
+/* ─── ESTILOS RESPONSIVE ──────────────────────────────────────────── */
+/* Adaptaciones para diferentes tamaños de pantalla */
+
+/* Tablet */
+@media (max-width: 1024px) {
     .sidebar {
-        position: fixed;
-        left: 0; top: 0; bottom: 0;
-        transform: translateX(-100%);
-        box-shadow: var(--shadow-md);
+        --sidebar-w: 240px; /* Sidebar más estrecha en tablet */
     }
-    .sidebar.open { transform: translateX(0); }
 
-    .sidebar-toggle { display: block; }
+    .chat-area {
+        padding: 2rem 0; /* Padding reducido */
+    }
 
-    .empty-title { font-size: 2rem; }
+    .empty-state {
+        margin: 3rem auto; /* Margen reducido */
+        padding: 0 1.5rem; /* Padding reducido */
+    }
 
-    .message { gap: 1.2rem; }
+    .messages {
+        padding: 0 1.5rem; /* Padding reducido */
+    }
+
+    .input-wrapper {
+        padding: 1rem 1.5rem 1.4rem; /* Padding reducido */
+    }
+}
+
+/* Mobile */
+@media (max-width: 680px) {
+    html { font-size: 9px; } /* Fuente base ligeramente más pequeña */
+
+    .sidebar {
+        position: fixed; /* Sidebar fija en móvil */
+        left: 0; top: 0; bottom: 0; /* Cubrir lado izquierdo */
+        transform: translateX(-100%); /* Oculta inicialmente */
+        box-shadow: var(--shadow-lg); /* Sombra grande */
+        z-index: 1000; /* Z-index alto */
+    }
+    .sidebar.open { transform: translateX(0); } /* Visible cuando abierta */
+
+    .sidebar-toggle { display: block; } /* Mostrar botón toggle */
+
+    .empty-title { font-size: 2.2rem; } /* Título más pequeño */
+    .empty-sub { font-size: 1.5rem; } /* Subtítulo más pequeño */
+
+    .message { gap: 1rem; padding: 1.5rem 0; } /* Mensajes más compactos */
+    .message-text { font-size: 1.5rem; } /* Texto más pequeño */
+    .message-role { font-size: 1.1rem; } /* Rol más pequeño */
+
+    .input-bar {
+        padding: 0.8rem 0.8rem 0.8rem 1.4rem; /* Padding reducido */
+        gap: 0.6rem; /* Gap reducido */
+    }
+    #userInput { font-size: 1.5rem; } /* Input más pequeño */
+    .send-btn { width: 3.4rem; height: 3.4rem; } /* Botón más pequeño */
+    .send-btn svg { width: 1.4rem; height: 1.4rem; } /* Icono más pequeño */
+
+    .disclaimer { font-size: 1rem; } /* Disclaimer más pequeño */
 }

@@ -43,28 +43,25 @@ Aplicación de chat local y offline (WebLLM) donde la IA se ejecuta en el equipo
 - `package.json`: dependencias y scripts.
 - `jest.config.js`: entorno y patrones de test.
 
-## 🚀 Requisitos
+## 🚀 Requisitos y ejecución
 
-- Node.js 18+ (o compatible)
+- **Navegador**: Chrome con soporte para Prompt API (experimental).
+- **Desarrollo**: Si no hay soporte, usa modo mock automático.
 
-## ▶️ Instalación y ejecución
+### Ejecutar localmente
 
-1. Instalar dependencias:
+1. Inicia un servidor HTTP:
+   ```bash
+   python -m http.server 8000
+   ```
+2. Abre `http://localhost:8000` en el navegador.
+3. La app detecta automáticamente si Gemini Nano está disponible; si no, activa modo desarrollo con respuestas simuladas.
+
+### Tests
 
 ```bash
 npm install
-```
-
-2. Ejecutar tests:
-
-```bash
 npm test
-```
-
-3. Ejecutar tests de seguridad (opcional):
-
-```bash
-npm run test:security
 ```
 
 ## 🧪 ¿Qué se prueba?
